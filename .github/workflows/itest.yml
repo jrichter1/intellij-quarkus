@@ -18,8 +18,8 @@ jobs:
       run: chmod +x gradlew
     - name: Run tests
       run: |
-        Xvnc :99 -geometry 1920x1080 &
-        export DISPLAY=:99
-        ./gradlew runIdeForUiTests -PideaVersion=2020.1 & 
-        ./gradlew integrationTest
+        sudo apt-get install xvfb
+        export DISPLAY=:99.0
+        Xvfb -ac :99 -screen 0 1920x1080x16 &
+        ./gradlew runIdeForUiTests -PideaVersion=2020.1
 
