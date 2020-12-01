@@ -9,11 +9,6 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-    - uses: actions/checkout@v2
-    - name: Set up JDK
-      uses: actions/setup-java@v1
-      with:
-        java-version: 11
     - name: Grant execute permission for gradlew
       run: chmod +x gradlew
     - name: Run tests
@@ -21,5 +16,6 @@ jobs:
         sudo apt-get install xvfb
         export DISPLAY=:99.0
         Xvfb -ac :99 -screen 0 1920x1080x16 &
-        ./gradlew runIdeForUiTests -PideaVersion=2020.1 --debug
+        ./gradlew runIdeForUiTests &
+        ./gradlew integrationTests
 
