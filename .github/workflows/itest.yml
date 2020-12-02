@@ -17,5 +17,5 @@ jobs:
         sudo apt-get install xvfb
         export DISPLAY=:99.0
         Xvfb -ac :99 -screen 0 1920x1080x16 &
-        ./gradlew runIdeForUiTests -PideaVersion=2020.2 & --debug
+        ./gradlew runIdeForUiTests -PideaVersion=2020.2 --debug &
         ./gradlew integrationTest
