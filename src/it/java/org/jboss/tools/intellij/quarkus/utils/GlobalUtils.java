@@ -199,7 +199,7 @@ public class GlobalUtils {
     }
 
     public static void waitUntilIntelliJStarts(int port) {
-        waitFor(Duration.ofSeconds(300), Duration.ofSeconds(3), "The IntelliJ Idea did not start in 5 minutes.", () -> isIntelliJUIVisible(port));
+        waitFor(Duration.ofSeconds(600), Duration.ofSeconds(3), "The IntelliJ Idea did not start in 5 minutes.", () -> isIntelliJUIVisible(port));
     }
 
     private static boolean isIntelliJUIVisible(int port) {
