@@ -26,7 +26,7 @@ jobs:
         $dir = "$env:USERPROFILE\AppData\Roaming\JetBrains\consentOptions"
         mkdir -Path $dir
         cp -Path .github/workflows/prefs.xml -Destination $dir
-        New-Item -Path HKCU:\Software\JavaSoft\Prefs\jetbrains\privacy_policy -Name accepted_version -Value "2.1"
+        New-Item -Path HKCU:\Software\JavaSoft\Prefs\jetbrains\privacy_policy -Name accepted_version -Value "2.1" -Force
         Start-Process powershell .\.github\workflows\start-ide.ps1 -WorkingDirectory .
         .\gradlew.bat integrationTests
       shell: powershell
