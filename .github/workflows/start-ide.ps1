@@ -1,0 +1,1 @@
+.\gradlew.bat runIdeForUiTest -PideaVersion="2020.2"
