@@ -1,1 +1,1 @@
-.\gradlew.bat runIdeForUiTest -PideaVersion="2020.2"
+.\gradlew.bat runIdeForUiTests -PideaVersion="2020.2"
