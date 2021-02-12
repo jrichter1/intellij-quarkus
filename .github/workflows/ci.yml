@@ -27,7 +27,7 @@ jobs:
         mkdir -Path $dir
         cp -Path .github/workflows/prefs.xml -Destination $dir
         New-Item -Path HKCU:\Software\JavaSoft\Prefs\jetbrains\privacy_policy -Name accepted_version -Value "2.1" -Force
-        Start-Process powershell .\.github\workflows\start-ide.ps1 -WorkingDirectory .
+        Start-Process .\gradlew.bat -ArgumentList "runIdeForUiTests -PideaVersion=2020.2" -WindowStyle hidden
         .\gradlew.bat integrationTest
       shell: powershell
 
