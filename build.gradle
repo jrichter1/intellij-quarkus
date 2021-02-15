@@ -127,6 +127,7 @@ task copyDeps(type: Copy) {
 }
 
 runIdeForUiTests {
+    systemProperty "jb.consents.confirmation.enabled", "false"
     systemProperty "robot-server.port", "8082" // default port 8080
 }
 
