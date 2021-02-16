@@ -25,8 +25,10 @@ jobs:
       run: |
         $dir = "$env:USERPROFILE\AppData\Roaming\JetBrains\consentOptions"
         mkdir -Path $dir
-        cp -Path .github/workflows/prefs.xml -Destination $dir
-        New-Item -Path HKCU:\Software\JavaSoft\Prefs\jetbrains\privacy_policy -Name accepted_version -Value "2.1" -Force
+        cp -Path .github/workflows/accepted -Destination $dir
+        $registryPath = "HKCU:\Software\JavaSoft\Prefs\jetbrains\privacy_policy"
+        New-Item -Path $registryPath -Force
+        New-ItemProperty -Path $registryPath -Name accepted_version -Value "2.1"
         Start-Process .\gradlew.bat -ArgumentList "runIdeForUiTests -PideaVersion=2020.2" -WindowStyle hidden
         .\gradlew.bat integrationTest
       shell: powershell
